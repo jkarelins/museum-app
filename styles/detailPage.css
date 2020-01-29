@@ -1,0 +1,23 @@
+body {
+  background-color: #feba02;
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  display: flexbox;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  justify-content: center;
+  margin-block-start: 3vw;
+  margin-block-end: 3vw;
+}
+
+#inMain {
+  text-align: center;
+}
+
+form {
+}
