@@ -9,15 +9,49 @@ main {
   display: flexbox;
   flex-wrap: wrap;
   flex-direction: column;
-
   justify-content: center;
   margin-block-start: 3vw;
   margin-block-end: 3vw;
+  padding: 5vh 0;
 }
 
 #inMain {
   text-align: center;
 }
 
+#postBtn {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  border: black 2px solid;
+  border-radius: 25px;
+}
+
+img {
+  display: inline-block;
+  max-width: 80%;
+  height: auto;
+}
+
 form {
+  border: 1px solid grey;
+  border-radius: 25px;
+  padding: 1vh 1vw;
+  margin: 3vh 20vw;
+}
+
+input,
+textarea {
+  font-size: 24px;
 }

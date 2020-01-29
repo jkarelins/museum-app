@@ -25,13 +25,23 @@
         </section>
 
         <form action="">
-          <label for="Name Input">Name:</label>
-          <input type="text" />
+          <div class="formInputs">
+            <label for="Name Input">Name:</label>
+            <input type="text" />
+          </div class="formInputs">
 
-          <label for="Message Input">Message:</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <div class="formInputs">
+            <label for="Message Input">Message:</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="10"
+            ></textarea>
+          </div>
 
-          <button>POST YOUR COMMENT</button>
+          <div>
+            <button id="postBtn">POST YOUR COMMENT</button>
+          </div>
         </form>
       </div>
     </main>
