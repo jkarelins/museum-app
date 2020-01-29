@@ -3,7 +3,7 @@ body {
 }
 
 main {
-  width: 90%;
+  width: 95%;
   margin: auto;
   background-color: white;
   display: flexbox;
@@ -39,7 +39,7 @@ main {
 
 img {
   display: inline-block;
-  max-width: 80%;
+  max-width: 90%;
   height: auto;
 }
 
