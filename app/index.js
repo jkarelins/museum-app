@@ -3,9 +3,8 @@ const gallery = document.getElementById("gallery");
 let artAuthor = { name: "allArt" };
 let innerArtObj = [];
 let minYear = 0;
-let maxYear = 1500;
+let maxYear = 2020;
 
-// function to sort gallery
 function sortArtByAuth(author) {
   if (artAuthor.name == "allArt") {
     innerArtObj = artObjects;
@@ -29,13 +28,6 @@ function createArtGallery() {
   $(".artCover").remove();
   gallery.innerHTML += innerArtObj
     .map(artObject => {
-      // if (
-      // artObject.webImage.width > 1500 &&
-      // artObject.principalOrFirstMaker !== "Gerard van Honthorst" &&
-      // date < 1800
-      // author === "allArt"
-      // true
-      // ) {
       return `<a href="./pages/detail-page.html" class='artCover'>
       <img
           class="artObject"
@@ -43,18 +35,19 @@ function createArtGallery() {
           src="${artObject.webImage.url}"
           alt="${artObject.title}"
 ></a>`;
-      // }
     })
     .join("");
 }
 
-const artObjsArr = document.getElementsByClassName("artObject");
+function setListenersToImg() {
+  let artObjsArr = document.getElementsByClassName("artObject");
 
-for (artObj of artObjsArr) {
-  artObj.addEventListener("click", e => {
-    const id = e.target.getAttribute("data");
-    localStorage.setItem("artObjectToDetails", id);
-  });
+  for (artObj of artObjsArr) {
+    artObj.addEventListener("click", e => {
+      const id = e.target.getAttribute("data");
+      localStorage.setItem("artObjectToDetails", id);
+    });
+  }
 }
 
 document.getElementById("painterSelector").innerHTML +=
@@ -68,23 +61,21 @@ document.getElementById("painterSelector").innerHTML += artObjects
 
 function runApp() {
   sortArtByAuth(artAuthor.name);
-  console.log(minYear, maxYear);
   sortByYear(minYear, maxYear);
   createArtGallery();
   $("#painterSelector").change(e => {
     artAuthor.name = e.target.value;
     runApp();
-    $("#minYear").val(minYear);
-    $("#maxYear").val(maxYear);
   });
   $("#searchForYears").on("click", e => {
     e.preventDefault();
     minYear = $("#minYear").val();
     maxYear = $("#maxYear").val();
     runApp();
-    $("#minYear").val(minYear);
-    $("#maxYear").val(maxYear);
   });
+  $("#minYear").val(minYear);
+  $("#maxYear").val(maxYear);
+  setListenersToImg();
 }
 
 runApp();
