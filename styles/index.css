@@ -37,3 +37,12 @@ p {
 body > footer > p {
   padding-bottom: 3vw;
 }
+
+#finder {
+  width: 100%;
+  text-align: center;
+}
+
+#selectYears {
+  margin-top: 10px;
+}

@@ -17,7 +17,7 @@ function newComment(e) {
 }
 
 const mainArtObject = document.getElementById("mainArtObject");
-const paintRequested = localStorage.artObjectToDetails;
+const paintRequested = localStorage.getItem("artObjectToDetails");
 
 const { artObjects } = data;
 
@@ -30,5 +30,3 @@ document.getElementById("pageHeader").textContent = foundArt.title;
 document.getElementById(
   "paintAuthor"
 ).textContent = `Author: ${foundArt.principalOrFirstMaker}`;
-
-console.log(foundArt);
