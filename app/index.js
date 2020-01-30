@@ -1,16 +1,34 @@
-function newComment(e) {
-  const nameInput = document.getElementById("nameInput");
-  const commentText = document.getElementById("message");
-  const commentsSpace = document.getElementById("commentsSpace");
+const { artObjects } = data;
+const gallery = document.getElementById("gallery");
 
-  commentsSpace.insertAdjacentHTML(
-    "beforeend",
-    `<section class="comment">
-      <h3>${nameInput.value} said:</h3>
-      <p>"${commentText.value}"</p>
-    </section>`
-  );
+// // Create index Gallery
+gallery.innerHTML += artObjects
+  .map(artObject => {
+    const { longTitle } = artObject;
+    const date = +longTitle.slice(-4);
+    if (
+      artObject.webImage.width > 1500 &&
+      artObject.principalOrFirstMaker !== "Gerard van Honthorst" &&
+      date < 1800
+    ) {
+      return `<a href="./pages/detail-page.html">
+      <img
+          class="artObject"
+          data="${artObject.id}"
+          src="${artObject.webImage.url}"
+          alt="${artObject.title}"
+></a>`;
+    }
+  })
+  .join("");
 
-  commentText.value = "";
-  nameInput.value = "";
+// Join to remove extra commas from toString -> innerHTML uses
+
+const artObjsArr = document.getElementsByClassName("artObject");
+
+for (artObj of artObjsArr) {
+  artObj.addEventListener("click", e => {
+    const id = e.target.getAttribute("data");
+    localStorage.setItem("artObjectToDetails", id);
+  });
 }
