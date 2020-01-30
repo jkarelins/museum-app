@@ -30,3 +30,5 @@ document.getElementById("pageHeader").textContent = foundArt.title;
 document.getElementById(
   "paintAuthor"
 ).textContent = `Author: ${foundArt.principalOrFirstMaker}`;
+
+document.title = foundArt.title;
